@@ -3,16 +3,34 @@
 ## About
 Converts MIDI files to TDW Files. 
 
-[Demo](https://youtu.be/Ipu868-USc8)
+## Demos
+[Demo OG](https://youtu.be/Ipu868-USc8)
 
-## Usage 
+[Demo GUI](https://youtu.be/004fRGgsQXw)
+
+## Usage (No GUI)
 
 * Clone This repo: `https://github.com/yangman946/MIDI-to-Thirty-Dollar-Website-.git`
-* Install requirements `pip install -r requirements.txt`
+* Install requirements `pip install -r src\requirements.txt`
 * Add MIDI Files to [midi to 30 dollar website\in](https://github.com/yangman946/MIDI-to-Thirty-Dollar-Website-/tree/main/midi%20to%2030%20dollar%20website/in)
 * Run `run.bat`
 
 Output files will show up at [midi to 30 dollar website\out](https://github.com/yangman946/MIDI-to-Thirty-Dollar-Website-/tree/main/midi%20to%2030%20dollar%20website/out)
+
+## Usage (GUI)
+
+A simple Python GUI is now included!
+You can select any MIDI file from your computer and convert it with a click.
+
+To run the GUI:
+```
+python src\main.py --gui
+```
+
+or you can run the batch file to easily launch the GUI (from the project root):
+```
+src\gui.bat
+```
 
 ## Running
 
@@ -25,7 +43,6 @@ Some MIDI Files also use non-percussion notes on channel 10 - which is reserved 
 This project is a work in progress, If you wish to contribute, submit a pull request and I will look at it ASAP. 
 
 ## Limitations
-
 
 * Haven't fully tested percussion
 * Combining and timing bugs

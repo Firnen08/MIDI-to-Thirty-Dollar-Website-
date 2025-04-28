@@ -3,10 +3,16 @@
 import midi2tdw
 import os 
 
-# todo: add UI?
+# todo: add UI? // 7/23/2022 by OG Creator (yangman946 on github)
+# No Todays the day Its Nolonger todo, The UI Is added in the gui.py file by BarricadeBandit (Firnen08 on github)
 
 def getfiles():
     files = []
+    # Ensure 'in' directory exists
+    if not os.path.exists("in"):
+        os.makedirs("in")
+        print(f"[INFO] Created missing 'in' directory at: {os.path.abspath('in')}")
+        return files
     # Iterate directory
     for file in os.listdir("in"):
         # check only text files
@@ -18,6 +24,10 @@ def getfiles():
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
+def convert_file(filepath):
+    process = midi2tdw.midi2tdw(filepath)
+    return midi2tdw.midi2tdw.getoutput(process)
+
 def wizard():
     cls()
     result = getfiles()
@@ -25,6 +35,11 @@ def wizard():
         print(f"NO MIDI FILES FOUND IN: {os.getcwd()}\\in\\")
         input("PRESS ANY KEY TO CONTINUE...")
         quit()
+
+    # Ensure 'out' directory exists
+    if not os.path.exists("out"):
+        os.makedirs("out")
+        print(f"[INFO] Created missing 'out' directory at: {os.path.abspath('out')}")
 
     print(f"MIDI FILES IN: {os.getcwd()}\\in\\")
     for i, item in enumerate(result):
@@ -68,9 +83,14 @@ def wizard():
             
 
 if __name__ == "__main__":
-    wizard()
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "--gui":
+        from gui import run_gui
+        run_gui()
+    else:
+        wizard()
 
 
 
-        
+
 

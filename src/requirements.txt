@@ -1,0 +1,3 @@
+mido==1.2.10
+# tkinter==0.1.0  # Tkinter is included with most Python installations
+# If you get errors, install with: pip install tkinter or remove the # comment on line 2
